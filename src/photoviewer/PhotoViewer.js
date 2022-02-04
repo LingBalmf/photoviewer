@@ -5,10 +5,14 @@ import './PhotoViewer.css';
 
 export function PhotoViewer(props) {
     const url = props.urls[0];
+    const [selectedUrl, setSelectedUrl] = useState();
 
     return (
         <div>
-            <img className="photoviewer-image" src={url} alt="AltImageName"  />
+            <h2>Selected: {selectedUrl}</h2>
+            <div>
+            <img className="photoviewer-image" key={url} src={url} alt="Lovely" onClick={function () {setSelectedUrl(url); }} />
+            </div>
         </div>
     )
 }
