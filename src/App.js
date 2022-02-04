@@ -1,25 +1,15 @@
 import logo from './logo.svg';
-import './App.css';
+import { PhotoViewer} from './photoviewer/PhotoViewer';
+import { imageUrls } from './photoviewer/imageUrls';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="post-image"> 
+            <h1>React Photo Viewer</h1>
+            <PhotoViewer urls={imageUrls} />
+        </div>
+    );
 }
 
 export default App;
