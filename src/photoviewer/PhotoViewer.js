@@ -1,10 +1,7 @@
-import React, { useState } from "react";  // import React (to provide access to JSX)
+import React, { useEffect, useState } from "react";  // import React (to provide access to JSX)
 import './PhotoViewer.css';
 
-export function Photo(props) {
-    const url = props.url;
-    const onClick = props.onClick;
-
+export function ThumbnailPhoto({ url, onClick }) {
     return (
         <span>
             <img className="photoviewer-image" src={url} alt="Lovely" onClick={onClick} />
@@ -12,19 +9,40 @@ export function Photo(props) {
     )
 }
 
-export function PhotoViewer(props) {    // declare and export new function called 'PhotoViewer'
-    const urls = props.urls;
-    const [selectedUrl, setSelectedUrl] = useState();
+function Photo({ url }) {
+    return <img src={url} alt="" />
+}
+
+export function PhotoViewer({ urls }) {    // declare and export new function called 'PhotoViewer'
+    const [leftUrl, setLeftUrl] = useState();
+    const [rightUrl, setRightUrl] = useState();
+    const [side, setSide] = useState('left');
+
+    useEffect(() => {
+        if (urls?.length > 1) {
+            setLeftUrl(urls[0]);
+            setRightUrl(urls[1]);
+        }
+    }, [urls]);
 
     return (
         <>
-            <h2>Selected: {selectedUrl}</h2>
+            <div>
+                <Photo url={leftUrl} />
+                <Photo url={rightUrl} />
+            </div>
             <div>
                 {urls.map(function (url) {
-                    return <Photo url={url} onClick={() => setSelectedUrl(url)} />;
+                    return <ThumbnailPhoto url={url} onClick={() => {
+                        if (side === 'left') {
+                            setLeftUrl(url);
+                        } else {
+                            setRightUrl(url);
+                        }
+                        setSide(side === 'left' ? 'right' : 'left');
+                    }} />;
                 })}
             </div>
         </>
-    )
-    return
+    );
 }

@@ -2,6 +2,7 @@ const brokenImages = [
     1, 24, 32, 36, 44, 47
 ];
 
+//returns a list of URLs
 function getImageUrls() {
     const urls = [];
 
