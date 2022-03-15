@@ -1,17 +1,7 @@
 import React, { useEffect, useState } from "react";  // import React (to provide access to JSX)
 import './PhotoViewer.css';
-
-export function ThumbnailPhoto({ url, onClick }) {
-    return (
-        <span>
-            <img className="photoviewer-image" src={url} alt="Lovely" onClick={onClick} />
-        </span>
-    )
-}
-
-function Photo({ url }) {
-    return <img src={url} alt="" />
-}
+import { ThumbnailPhoto } from "./ThumbnailPhoto";
+import { Photo} from "./Photo";
 
 export function PhotoViewer({ urls }) {    // declare and export new function called 'PhotoViewer'
     const [leftUrl, setLeftUrl] = useState();
