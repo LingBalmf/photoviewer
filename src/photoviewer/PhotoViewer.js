@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";  // import React (to provide access to JSX)
+import React, { useState } from "react";
 import './PhotoViewer.css';
 import { ThumbnailPhoto } from "./ThumbnailPhoto";
 import { Photo } from "./Photo";
 
-export function PhotoViewer({ urls }) {    // declare and export new function called 'PhotoViewer'
+export function PhotoViewer({ urls }) {
     const [leftUrl, setLeftUrl] = useState(urls[0]);
     const [rightUrl, setRightUrl] = useState(urls[1]);
     const [side, setSide] = useState('left');
