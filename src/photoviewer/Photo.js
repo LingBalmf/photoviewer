@@ -1,3 +1,3 @@
 export function Photo({ url }) {
-    return <img src={url} alt="" />
+    return <img className="photo__image" src={url} alt="" />
 }

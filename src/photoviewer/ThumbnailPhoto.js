@@ -1,10 +1,9 @@
-export function ThumbnailPhoto(props) {
-    const url = props.url;
-    const onClick = props.onClick;
+import './PhotoViewer.css';
 
+export function ThumbnailPhoto({url, selected, onClick}) {
     return (
         <span>
-            <img className="photoviewer-image" src={url} alt="Lovely" onClick={onClick} />
+            <img className={`thumbnail ${selected ? "selected": "" }`} src={url} alt="Lovely"  onClick={onClick} />
         </span>
     )
 }

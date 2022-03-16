@@ -1,5 +1,31 @@
-.photoviewer-image {
+.photo__image {
+    width: 50%;
+    object-fit: cover;
+    padding: 10px;
+    justify-content: center;
+}
+
+.photo__container {
+    display: flex;
+    margin: 20px 0;
+}
+
+.thumb__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.thumbnail {
     object-fit: cover;
     width: 100px;
     height: 100px;
+}
+
+.thumbnail:hover {
+    outline: 5px solid grey;
+}
+
+.thumbnail.selected {
+    outline: 5px solid red;
 }
